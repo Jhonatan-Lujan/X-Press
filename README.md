@@ -1,4 +1,4 @@
-X Press,
+# X Press
 
 Internal tool for a comic book publishing company called X-Press.
 
@@ -14,7 +14,7 @@ The routes and logic on server.js and in the folder api
 
 for the DB, migration.js creates the DB and tables and there is some data example on seed.js to be loaded
 
-the requirements for the DB:
+#### requirements for the DB:
 
 Create an Artist table (if it doesn’t already exist) with the following schema:
 
@@ -24,13 +24,13 @@ Create an Artist table (if it doesn’t already exist) with the following schema
 - **biography** - Text, required
 - **is_currently_employed** - Integer, defaults to `1`
 
- Create a `Series`table, if one doesn’t already exist with the following schema:
+ Create a Series table, if one doesn’t already exist with the following schema:
 
 - **id** - Integer, primary key, required
 - **name** - Text, required
 - **description** - Text, required
 
-`Create a Issue``Series`table, if one doesn’t already exist  with the following schema:
+ Create a Issue Series table, if one doesn’t already exist  with the following schema:
 
 - **id** - Integer, primary key, required
 - **name** - Text, required
@@ -39,23 +39,23 @@ Create an Artist table (if it doesn’t already exist) with the following schema
 - **artist_id** - Integer, foreign key, required
 - **series_id** - Integer, foreign key, required
 
-API
+#### API
 
- write the CRUD operations for `/api/artists`.
+write the CRUD operations for `/api/artists`.
 
 write the CRUD operations for `/api/series`
 
 write the CRUD operations for `/api/series/:seriesId/issues`
 
-\### Route Paths and Functionality
+#### Route Paths and Functionality
 
-***\*****/api/artists*****\***
+/api/artists
 
-\- GET
+###### GET
 
  \- Returns a 200 response containing all saved currently-employed artists (`is_currently_employed` is equal to `1`) on the `artists` property of the response body
 
-\- POST
+###### POST
 
  \- Creates a new artist with the information from the `artist` property of the request body and saves it to the database. Returns a 201 response with the newly-created artist on the `artist` property of the response body
 
@@ -63,15 +63,15 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
 
 
-***\*****/api/artists/:artistId*****\***
+api/artists/:artistId
 
-\- GET
+###### GET
 
  \- Returns a 200 response containing the artist with the supplied artist ID on the `artist` property of the response body
 
  \- If an artist with the supplied artist ID doesn't exist, returns a 404 response
 
-\- PUT
+###### PUT
 
  \- Updates the artist with the specified artist ID using the information from the `artist` property of the request body and saves it to the database. Returns a 200 response with the updated artist on the `artist` property of the response body
 
@@ -79,21 +79,21 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
  \- If an artist with the supplied artist ID doesn't exist, returns a 404 response
 
-\- DELETE
+###### DELETE
 
  \- Updates the artist with the specified artist ID to be unemployed (`is_currently_employed` equal to `0`). Returns a 200 response.
 
  \- If an artist with the supplied artist ID doesn't exist, returns a 404 response
+ 
+ 
 
+/api/series
 
-
-***\*****/api/series*****\***
-
-\- GET
+###### GET
 
  \- Returns a 200 response containing all saved series on the `series` property of the response body
 
-\- POST
+###### POST
 
  \- Creates a new series with the information from the `series` property of the request body and saves it to the database. Returns a 201 response with the newly-created series on the `series` property of the response body
 
@@ -101,15 +101,15 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
 
 
-***\*****/api/series/:seriesId*****\***
+/api/series/:seriesId
 
-\- GET
+###### GET
 
  \- Returns a 200 response containing the series with the supplied series ID on the `series` property of the response body
 
  \- If a series with the supplied series ID doesn't exist, returns a 404 response
 
-\- PUT
+###### PUT
 
  \- Updates the series with the specified series ID using the information from the `series` property of the request body and saves it to the database. Returns a 200 response with the updated series on the `series` property of the response body
 
@@ -117,7 +117,7 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
  \- If a series with the supplied series ID doesn't exist, returns a 404 response
 
-\- DELETE
+###### DELETE
 
  \- Deletes the series with the supplied series ID from the database if that series has no related issues. Returns a 204 response.
 
@@ -127,15 +127,15 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
 
 
-***\*****/api/series/:seriesId/issues*****\***
+/api/series/:seriesId/issues
 
-\- GET
+###### GET
 
  \- Returns a 200 response containing all saved issues related to the series with the supplied series ID on the `issues` property of the response body
 
  \- If a series with the supplied series ID doesn't exist, returns a 404 response
 
-\- POST
+###### POST
 
  \- Creates a new issue, related to the series with the supplied series ID, with the information from the `issue` property of the request body and saves it to the database. Returns a 201 response with the newly-created issue on the `issue` property of the response body
 
@@ -145,9 +145,9 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
 
 
-***\*****/api/series/:seriesId/issues/:issueId*****\***
+/api/series/:seriesId/issues/:issueId
 
-\- PUT
+###### PUT
 
  \- Updates the issue with the specified issue ID using the information from the `issue` property of the request body and saves it to the database. Returns a 200 response with the updated issue on the `issue` property of the response body
 
@@ -157,7 +157,7 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
  \- If an issue with the supplied issue ID doesn't exist, returns a 404 response
 
-\- DELETE
+###### DELETE
 
  \- Deletes the issue with the supplied issue ID from the database. Returns a 204 response.
 
@@ -165,10 +165,10 @@ write the CRUD operations for `/api/series/:seriesId/issues`
 
  \- If an issue with the supplied issue ID doesn't exist, returns a 404 response
 
-commands
+###### commands
 
-node migration.js
+* node migration.js
 
-server.js 
+* server.js 
 
 and you can begin the interaction with the web page with live server or opening the index.html on browser
